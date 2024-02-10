@@ -25,11 +25,20 @@ const App = () => {
         setTasks([...tasks, newTask]);
       };
       console.log(tasks)
+    const toggleTaskStatus = (taskId) => {
+        setTasks(tasks.map(task => {
+          if (task.id === taskId) {
+            return { ...task, completed: !task.completed };
+          }
+          return task;
+        }));
+      };
     return (
         <div>
             <h1 className="text-2xl font-medium text-center my-10">Todo List App</h1>
             <TaskForm onSubmit={addTask} />
-            <TaskList tasks={tasks}></TaskList>
+            <TaskList tasks={tasks}
+             toggleTaskStatus={toggleTaskStatus}></TaskList>
 
         </div>
     );
