@@ -22,8 +22,8 @@ const TaskForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className='space-x-2 flex justify-center items-center'>
-     <input type="text" value={title} onChange={handleTitleChange} placeholder="Enter Task Title" className="input input-bordered input-sm w-full max-w-xs" />
-     <select value={priority} onChange={handlePriorityChange} className="select select-bordered select-sm w-full max-w-xs">
+     <input type="text" value={title} onChange={handleTitleChange} placeholder="Enter Task Title" className="input input-bordered input-sm w-1/4 lg:w-full max-w-xs" />
+     <select value={priority} onChange={handlePriorityChange} className="select select-bordered select-sm w-1/4 lg:w-full max-w-xs">
         <option disabled selected>Select one</option>
         <option value="low">Low</option>
         <option value="medium">Medium</option>

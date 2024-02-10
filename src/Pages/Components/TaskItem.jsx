@@ -53,11 +53,11 @@ const TaskItem = ({ task, toggleTaskStatus, editTask, deleteTask }) => {
   return (
     <div className="">
         {editing ? (
-        <div className="space-x-2 ">
+        <div className="space-x-2 space-y-3 ">
         
-          <input type="text" value={title} onChange={handleChange} placeholder="Enter Task Title" className="input input-bordered input-sm w-full max-w-xs" />
+          <input type="text" value={title} onChange={handleChange} placeholder="Enter Task Title" className="input input-bordered input-sm w-1/4 lg:w-full max-w-xs" />
          
-          <select value={priority} onChange={handlePriorityChange} className="select select-bordered select-sm w-full max-w-xs">
+          <select value={priority} onChange={handlePriorityChange} className="select select-bordered select-sm w-1/4 lg:w-full max-w-xs">
             <option disabled selected>Select one</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
@@ -67,18 +67,21 @@ const TaskItem = ({ task, toggleTaskStatus, editTask, deleteTask }) => {
           <button onClick={handleCancelEdit} className='btn btn-warning btn-sm'>Cancel</button>
         </div>
       ) : (  
-        <tr className="">
-      <td><span style={priorityStyles}></span></td>
-      <td>{task.priority}</td>
-      <td style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.title}</td>
-      <td>
+      
+      <div className="space-x-6 space-y-3">
+        <span style={priorityStyles}></span>
+       <span>{task.priority} </span>
+      <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.title} </span>
+     
         <button onClick={handleToggleStatus} className="btn btn-success btn-xs">
           {task.completed ? 'Mark as Incomplete' : 'Mark as Complete'}
         </button>
         <button onClick={handleEdit} className="btn btn-info btn-xs">Edit</button>
         <button onClick={handleDelete} className="btn btn-error btn-xs">Delete</button>
-      </td>
-    </tr>)
+      
+     
+      </div>
+        )
     }
     </div>
   );

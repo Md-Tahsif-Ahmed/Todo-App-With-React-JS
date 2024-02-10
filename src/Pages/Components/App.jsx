@@ -78,7 +78,7 @@ const App = () => {
 
   return (
     <div className='space-y-4'>
-      <h1 className='text-2xl text-center font-medium my-10'>Todo List</h1>
+      <h1 className='text-2xl text-center font-medium my-10'>Todo List App</h1>
       <div className="flex items-center justify-center space-x-4">
       <div><span className='font-bold'>Total Tasks:</span> {totalTasks}</div>
       <div><span className='font-bold'>Completed Tasks:</span> {completedTasks}</div>
@@ -87,7 +87,7 @@ const App = () => {
       <TaskForm onSubmit={addTask} />
       <div className='text-center'>
         <label>Filter by Priority: </label>
-        <select value={filterPriority} onChange={handlePriorityFilterChange} className="select select-bordered select-sm w-full max-w-xs">
+        <select value={filterPriority} onChange={handlePriorityFilterChange} className="select select-bordered select-sm w-1/4 lg:w-full max-w-xs">
             <option value="all">All</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
