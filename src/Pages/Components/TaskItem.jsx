@@ -68,13 +68,13 @@ const TaskItem = ({ task, toggleTaskStatus, editTask, deleteTask }) => {
         </div>
       ) : (  
       
-      <div className="space-x-6 space-y-3">
+      <div className="space-x-6 space-y-3 ">
         <span style={priorityStyles}></span>
        <span>{task.priority} </span>
       <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.title} </span>
      
         <button onClick={handleToggleStatus} className="btn btn-success btn-xs">
-          {task.completed ? 'Mark as Incomplete' : 'Mark as Complete'}
+          {task.completed ? 'Incomplete' : 'Complete'}
         </button>
         <button onClick={handleEdit} className="btn btn-info btn-xs">Edit</button>
         <button onClick={handleDelete} className="btn btn-error btn-xs">Delete</button>
