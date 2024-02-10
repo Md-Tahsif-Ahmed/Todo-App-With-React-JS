@@ -7,7 +7,7 @@ const TaskForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) return;
-    onSubmit(title, priority);  m
+    onSubmit(title, priority);
     setTitle('');
     setPriority('low');  
   };
