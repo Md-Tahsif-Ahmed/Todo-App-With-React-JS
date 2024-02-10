@@ -3,6 +3,7 @@ import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 const App = () => {
     const [tasks, setTasks] = useState([]);
+    const [completedTasks, setCompletedTasks] = useState(0);
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem('tasks'));
         if (storedTasks && storedTasks.length > 0) {

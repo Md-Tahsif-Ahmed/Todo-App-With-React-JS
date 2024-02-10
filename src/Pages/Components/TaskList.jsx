@@ -9,6 +9,7 @@ const TaskList = ({tasks, toggleTaskStatus}) => {
           key={task.id}
           task={task}
           toggleTaskStatus={toggleTaskStatus}
+          priority={task.priority} 
         />
       ))}
     </div>
