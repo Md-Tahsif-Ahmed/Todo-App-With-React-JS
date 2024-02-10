@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TaskItem = ({ task, toggleTaskStatus, editTask }) => {
+const TaskItem = ({ task, toggleTaskStatus, editTask, deleteTask }) => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState(task.title);
   const [priority, setPriority] = useState(task.priority);
@@ -30,6 +30,9 @@ const TaskItem = ({ task, toggleTaskStatus, editTask }) => {
 
   const handlePriorityChange = (e) => {
     setPriority(e.target.value);
+  };
+  const handleDelete = () => {
+    deleteTask(task.id);
   };
 
   const priorityColors = {
@@ -72,7 +75,8 @@ const TaskItem = ({ task, toggleTaskStatus, editTask }) => {
         <button onClick={handleToggleStatus} className="btn btn-success btn-xs">
           {task.completed ? 'Mark as Incomplete' : 'Mark as Complete'}
         </button>
-        <button onClick={handleEdit} className="btn btn-success btn-xs">Edit</button>
+        <button onClick={handleEdit} className="btn btn-info btn-xs">Edit</button>
+        <button onClick={handleDelete} className="btn btn-error btn-xs">Delete</button>
       </td>
     </tr>)
     }

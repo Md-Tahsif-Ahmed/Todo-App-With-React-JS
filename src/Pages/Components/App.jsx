@@ -47,13 +47,18 @@ const App = () => {
           return task;
         }));
       };
+    //   Delete
+    const deleteTask = (taskId) => {
+        setTasks(tasks.filter(task => task.id !== taskId));
+      };
     return (
         <div>
             <h1 className="text-2xl font-medium text-center my-10">Todo List App</h1>
             <TaskForm onSubmit={addTask} />
             <TaskList tasks={tasks}
              toggleTaskStatus={toggleTaskStatus}
-             editTask={editTask}></TaskList>
+             editTask={editTask}
+             deleteTask={deleteTask}></TaskList>
 
         </div>
     );

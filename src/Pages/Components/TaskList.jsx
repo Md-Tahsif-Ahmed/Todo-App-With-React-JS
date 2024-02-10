@@ -1,7 +1,7 @@
  
 import TaskItem from './TaskItem';
 
-const TaskList = ({tasks, toggleTaskStatus, editTask}) => {
+const TaskList = ({tasks, toggleTaskStatus, editTask, deleteTask}) => {
   return (
     <div className='text-center my-10'>
       {tasks.map(task => (
@@ -11,6 +11,7 @@ const TaskList = ({tasks, toggleTaskStatus, editTask}) => {
           toggleTaskStatus={toggleTaskStatus}
           priority={task.priority} 
           editTask={editTask}
+          deleteTask={deleteTask}
         />
       ))}
     </div>
