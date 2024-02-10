@@ -7,6 +7,8 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [filterPriority, setFilterPriority] = useState('all');
+  const [totalTasks, setTotalTasks] = useState(0);
+  const [completedTasks, setCompletedTasks] = useState(0);
   
 
   useEffect(() => {
@@ -19,6 +21,7 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
     filterTasks();
+    updateTaskCounters();
    
   }, [tasks, filterPriority]);
 
@@ -66,9 +69,20 @@ const App = () => {
     setFilterPriority(e.target.value);
   };
 
+  //Counter
+    const updateTaskCounters = () => {
+        setTotalTasks(tasks.length);
+        const completedTasksCount = tasks.filter(task => task.completed).length;
+        setCompletedTasks(completedTasksCount);
+    };
+
   return (
     <div className='space-y-4'>
       <h1 className='text-2xl text-center font-medium my-10'>Todo List</h1>
+      <div className="flex items-center justify-center space-x-4">
+      <div><span className='font-bold'>Total Tasks:</span> {totalTasks}</div>
+      <div><span className='font-bold'>Completed Tasks:</span> {completedTasks}</div>
+      </div>
        
       <TaskForm onSubmit={addTask} />
       <div className='text-center'>
